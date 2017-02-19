@@ -1,7 +1,66 @@
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Store";
 }
 
+<h2>Summer collection</h2>
+<button class="btn btn-primary add-new-product-btn">Add new product</button>
+
+<div class="row row__product-row">
+    <a class="product-row__product-col-link" href="/product/">
+        <div class="col-md-4 product-row__product-col">
+            <div class="product-col__product-element" id="productId">
+                <img class="product-col_product-img" src="http://simpleproductphotography.com/wp-content/uploads/2016/06/huf-converse-product-red-skidgrip-1.jpg"/>
+                <div class="product-col__product-title">Jordans S2K Sr edition</div>
+                <div class="product-col__product-price">79.99$</div>
+                <button
+                    class="snipcart-add-item btn btn-success product-col__product-add-to-cart-btn"
+                    data-item-id="2"
+                    data-item-name="Jordans S2K Sr edition"
+                    data-item-price="79.99"
+                    data-item-weight="20"
+                    data-item-url="/product/"
+                    data-item-description="Some fresh bacon">
+                        Add to cart
+                </button>
+                <button class="btn btn-warning product-col__product-edit-btn">Edit</button>
+            </div>
+        </div>
+    </a>
+    
+
+</div>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function() {
+            //snipcart config
+            Snipcart.subscribe('app.ready', function() {
+                alert("ready");
+            });
+
+
+            $(".add-new-product-btn").click(function(){
+                alert("add new product click");
+            });
+
+            $(".product-col__product-add-to-cart-btn").click(function(e){
+                e.preventDefault(); //prevent redirect to product's page
+            });
+
+            $(".product-col__product-edit-btn").click(function(e){
+                e.preventDefault(); //prevent redirect to product's page
+                alert("edit click");
+            });
+        });
+    </script>
+}
+
+
+
+
+
+<!--
 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
     <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -105,4 +164,4 @@
             <li><a href="https://go.microsoft.com/fwlink/?LinkID=398609">Publish to Microsoft Azure Web Apps</a></li>
         </ul>
     </div>
-</div>
+</div> -->

@@ -8,12 +8,16 @@
     <environment names="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
+<!--_____________________________________________________ Snipcart CSS ______________________________________________________________________________________________________________________________________________________________-->
+        <link href="https://cdn.snipcart.com/themes/2.0/base/snipcart.min.css" type="text/css" rel="stylesheet" />
     </environment>
     <environment names="Staging,Production">
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<!--_____________________________________________________ Snipcart CSS ______________________________________________________________________________________________________________________________________________________________-->
+        <link href="https://cdn.snipcart.com/themes/2.0/base/snipcart.min.css" type="text/css" rel="stylesheet" />
     </environment>
 </head>
 <body>
@@ -30,9 +34,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Store</a></li>
                 </ul>
             </div>
         </div>
@@ -64,6 +66,16 @@
                 integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
         </script>
         <script src="~/js/site.min.js" asp-append-version="true"></script>
+
+<!--_____________________________________________________ Snipcart JS ______________________________________________________________________________________________________________________________________________________________-->
+        <script 
+            src="https://cdn.snipcart.com/scripts/2.0/snipcart.js" 
+            id="snipcart" 
+            data-api-key="MDFiYmQzNWItOGE3Ni00NDA2LTkzM2EtMjYzOTRiOTM5MGU4NjM2MjMxMzI4MzY4NjQ0NzQ0">
+        </script>
+
+        
+
     </environment>
 
     @RenderSection("Scripts", required: false)

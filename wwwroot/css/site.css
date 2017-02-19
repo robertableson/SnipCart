@@ -17,21 +17,38 @@ textarea {
     max-width: 280px;
 }
 
-/* Carousel */
-.carousel-caption p {
-    font-size: 20px;
-    line-height: 1.4;
+/*--------------------------------- custom css starts here -----------------------------------------*/
+.row__product-row{
+    text-align: center;
 }
 
-/* Make .svg files in the carousel display properly in older browsers */
-.carousel-inner .item img[src$=".svg"] {
-    width: 100%;
+.product-row__product-col-link{
+    text-decoration: none;
 }
 
-/* Hide/rearrange for smaller screens */
-@media screen and (max-width: 767px) {
-    /* Hide captions */
-    .carousel-caption {
-        display: none;
-    }
+.product-row__product-col{
+     padding:10px 20px;
+}
+
+.product-col__product-element{
+    padding:10px 0;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19);
+}
+.product-col__product-element:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.product-col_product-img{
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.product-col__product-title{
+    font-size: 2rem;
+    color:#202020;
+}
+
+.product-col__product-price{
+    font-size: 1.5rem;
+    color:#494949;
 }
