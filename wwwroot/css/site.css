@@ -22,7 +22,7 @@ textarea {
     text-align: center;
 }
 
-.product-row__product-col-link{
+.product-row__product-col>.product-row__product-col-link{
     text-decoration: none;
 }
 
