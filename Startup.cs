@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
+using PrototypeApi;
 
 namespace snipcart
 {
@@ -28,6 +30,8 @@ namespace snipcart
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
+            services.AddDbContext<ApiContext>(opt => opt.UseInMemoryDatabase());
+
             services.AddMvc();
         }
 
