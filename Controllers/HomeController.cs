@@ -18,25 +18,8 @@ namespace snipcart.Controllers
         }
 
         public IActionResult Index()
-        {
-            //var prodList = _context.Products.FirstOrDefault();
-
-            List<snipcart.Models.Product> prodList = new List<snipcart.Models.Product>(){
-                new snipcart.Models.Product {
-                    Id = 1, 
-                    Title = "Jordans S2K Sr edition",
-                    Description = "The Jordans S2K Sr edition is the best bang for your buck.", 
-                    Price = 97.99,
-                    Image = "http://simpleproductphotography.com/wp-content/uploads/2016/06/huf-converse-product-red-skidgrip-1.jpg"
-                },
-                new snipcart.Models.Product {
-                    Id = 2, 
-                    Title = "Lamborghini Huracan",
-                    Description = "The Lamborghini Huracan is definitely the best supercar for the money.", 
-                    Price = 278999.99,
-                    Image = "http://1.bp.blogspot.com/-Gaj30dheGzE/VfGQL2uD0_I/AAAAAAAAWJ4/IOomh6RXDpY/w800/lambo-huracan-roadster-rendering-ts-4.jpg"
-                }
-            };
+        {            
+            var prodList = from p in _context.Products select p;
 
             return View(prodList);
         }
@@ -60,24 +43,20 @@ namespace snipcart.Controllers
             return View();
         }
 
-        
- 
-       /*public async Task<IActionResult> Get()
-        { 
-            var response = _context.Products.Select(u => new
+        [HttpPost]
+        public void CreateNewProduct(string name){
+            string n = name;
+            var testProd = new snipcart.Models.Product
             {
-                id = u.Id,
-                title = u.Title,
-                desc = u.Description,
-                price = u.Price,
-                image = u.Image
-            });
+                Id = 3, 
+                Title = "test",
+                Description = "Best burger in town.", 
+                Price = 12.99,
+                Image = "http://proprofs-cdn.s3.amazonaws.com/images/FC/user_images/1878936/3960366298.jpg"
+            };
 
-            
-
-            
- 
-            return Ok(response);
-        }*/
+            _context.Products.Add(testProd);
+            _context.SaveChanges();
+        }
     }
 }
