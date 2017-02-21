@@ -8,7 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
-using PrototypeApi;
+using snipcart;
 
 namespace snipcart
 {
@@ -41,6 +41,9 @@ namespace snipcart
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
+            var context = app.ApplicationServices.GetService<ApiContext>();
+            AddTestData(context);
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -59,6 +62,20 @@ namespace snipcart
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+        }
+
+        private static void AddTestData(ApiContext context)
+        {
+            var testProd = new snipcart.DbModels.Product
+            {
+                Id = 1,
+                Title = "Luke",
+                Description = "Skywalker",
+                Price = 79.99,
+                Image = ""
+            };
+        
+            context.Products.Add(testProd);
         }
     }
 }

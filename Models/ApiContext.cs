@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using PrototypeApi.DbModels;
+using snipcart.DbModels;
  
-namespace PrototypeApi
+namespace snipcart
 {
     public class ApiContext : DbContext
     {
