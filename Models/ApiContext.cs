@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using snipcart.DbModels;
+using snipcart.Models;
  
 namespace snipcart
 {

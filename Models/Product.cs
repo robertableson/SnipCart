@@ -1,6 +1,6 @@
 using System.Collections.Generic;
  
-namespace snipcart.DbModels
+namespace snipcart.Models
 {
     public class Product
     {

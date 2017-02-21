@@ -19,15 +19,23 @@ namespace snipcart.Controllers
 
         public IActionResult Index()
         {
-            //var product = _context.Products.FirstOrDefault();
+            //var prodList = _context.Products.FirstOrDefault();
 
-            List<snipcart.DbModels.Product> prodList = new List<snipcart.DbModels.Product>(){
-                new snipcart.DbModels.Product {
+            List<snipcart.Models.Product> prodList = new List<snipcart.Models.Product>(){
+                new snipcart.Models.Product {
                     Id = 1, 
-                    Title = "titre1",
-                    Description = "desc1", 
+                    Title = "Jordans S2K Sr edition",
+                    Description = "The Jordans S2K Sr edition is the best bang for your buck.", 
                     Price = 97.99,
-                    Image = "fkhjbfksjn.jpg"}
+                    Image = "http://simpleproductphotography.com/wp-content/uploads/2016/06/huf-converse-product-red-skidgrip-1.jpg"
+                },
+                new snipcart.Models.Product {
+                    Id = 2, 
+                    Title = "Lamborghini Huracan",
+                    Description = "The Lamborghini Huracan is definitely the best supercar for the money.", 
+                    Price = 278999.99,
+                    Image = "http://1.bp.blogspot.com/-Gaj30dheGzE/VfGQL2uD0_I/AAAAAAAAWJ4/IOomh6RXDpY/w800/lambo-huracan-roadster-rendering-ts-4.jpg"
+                }
             };
 
             return View(prodList);
@@ -37,8 +45,12 @@ namespace snipcart.Controllers
         {
             return View();
         }
+        public IActionResult Edit()
+        {
+            return View();
+        }
 
-        public IActionResult Product()
+        public IActionResult Product(int id)
         {
             return View();
         }
@@ -50,10 +62,11 @@ namespace snipcart.Controllers
 
         
  
-       /* public async Task<IActionResult> Get()
+       /*public async Task<IActionResult> Get()
         { 
             var response = _context.Products.Select(u => new
             {
+                id = u.Id,
                 title = u.Title,
                 desc = u.Description,
                 price = u.Price,

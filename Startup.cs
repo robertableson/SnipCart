@@ -66,13 +66,13 @@ namespace snipcart
 
         private static void AddTestData(ApiContext context)
         {
-            var testProd = new snipcart.DbModels.Product
+            var testProd = new snipcart.Models.Product
             {
-                Id = 1,
-                Title = "Luke",
-                Description = "Skywalker",
-                Price = 79.99,
-                Image = ""
+                Id = 1, 
+                Title = "titre1",
+                Description = "desc1", 
+                Price = 97.99,
+                Image = "http://simpleproductphotography.com/wp-content/uploads/2016/06/huf-converse-product-red-skidgrip-1.jpg"
             };
         
             context.Products.Add(testProd);
