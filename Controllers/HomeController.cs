@@ -7,7 +7,7 @@ using snipcart;
 
 namespace snipcart.Controllers
 {
-    //[Route("api/[controller]")]
+    
     public class HomeController : Controller
     {
         private readonly ApiContext _context;
@@ -43,9 +43,8 @@ namespace snipcart.Controllers
             return View();
         }
 
-        [HttpPost]
-        public void CreateNewProduct(string name){
-            string n = name;
+        [HttpGetAttribute]
+        public string CreateNewProduct(string name){
             var testProd = new snipcart.Models.Product
             {
                 Id = 3, 
@@ -57,6 +56,8 @@ namespace snipcart.Controllers
 
             _context.Products.Add(testProd);
             _context.SaveChanges();
+
+            return "done";
         }
     }
 }
