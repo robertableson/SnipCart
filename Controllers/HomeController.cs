@@ -44,14 +44,14 @@ namespace snipcart.Controllers
         }
 
         [HttpGetAttribute]
-        public string CreateNewProduct(string name){
+        public string CreateNewProduct(string name, string desc, double price, string image){
             var testProd = new snipcart.Models.Product
             {
                 Id = 3, 
-                Title = "test",
-                Description = "Best burger in town.", 
-                Price = 12.99,
-                Image = "http://proprofs-cdn.s3.amazonaws.com/images/FC/user_images/1878936/3960366298.jpg"
+                Title = name,
+                Description = desc, 
+                Price = price,
+                Image = image
             };
 
             _context.Products.Add(testProd);

@@ -5,16 +5,16 @@
  
 <form class="form-add-product">
     <div class="form-group">
-        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Name">
+        <input type="text" class="form-control" id="prod-title" placeholder="Name">
     </div>
     <div class="form-group">
-        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Description">
+        <input type="text" class="form-control" id="prod-desc" placeholder="Description">
     </div>
     <div class="form-group">
-        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Image url">
+        <input type="text" class="form-control" id="prod-price" placeholder="Price (ex: 9.98)">
     </div>
     <div class="form-group">
-        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Price (ex: 97.99)">
+        <input type="text" class="form-control" id="prod-img" placeholder="Image">
     </div>
     <button class="btn btn-primary btn__add-product-btn">Add</button>
 </form>
@@ -24,17 +24,22 @@
     <script>
         $(document).ready(function() {
             $(".btn__add-product-btn").click(function(e){
-                /* $.get("/Home/CreateNewProduct", { name: "allo" }, function (data) {
-                    alert("allo");
-                });*/
-
                 e.preventDefault();
+                var title = $("#prod-title").val();
+                var description = $("#prod-desc").val(); 
+                var price = $("#prod-price").val();
+                var image = $("#prod-image").val();
 
                 $.ajax({
                     url: "/Home/CreateNewProduct",
                     type: "GET",
                     datatype: 'json',
-                    data: { name: "allo" },
+                    data: { 
+                        title: title, 
+                        desc: description, 
+                        price: price, 
+                        img: image 
+                    },
                     success: function (data, status, jqXHR) {
                         $(".form-add-product").prepend(
                             '<div class="alert alert-success">' +
