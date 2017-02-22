@@ -43,14 +43,10 @@
 {
     <script>
         $(document).ready(function() {
-            //snipcart config
-            Snipcart.subscribe('app.ready', function() {
-                alert("ready");
-            });
-
-
-
             $(".product-col__product-add-to-cart-btn").click(function(e){
+                e.preventDefault(); //prevent redirect to product's page
+            });
+            $(".product-col__product-edit-btn").click(function(e){
                 e.preventDefault(); //prevent redirect to product's page
             });
         });
