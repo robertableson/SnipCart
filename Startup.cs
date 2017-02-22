@@ -30,7 +30,7 @@ namespace snipcart
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
-            services.AddDbContext<ApiContext>(opt => opt.UseInMemoryDatabase());
+            services.AddDbContext<InMemoryDB>(opt => opt.UseInMemoryDatabase());
 
             services.AddMvc();
         }
@@ -41,7 +41,7 @@ namespace snipcart
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            var context = app.ApplicationServices.GetService<ApiContext>();
+            var context = app.ApplicationServices.GetService<InMemoryDB>();
             AddTestData(context);
 
             if (env.IsDevelopment())
@@ -64,7 +64,7 @@ namespace snipcart
             });
         }
 
-        private static void AddTestData(ApiContext context)
+        private static void AddTestData(InMemoryDB context)
         {
             var testProd1 = new snipcart.Models.Product
             {

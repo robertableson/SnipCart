@@ -3,9 +3,9 @@ using snipcart.Models;
  
 namespace snipcart
 {
-    public class ApiContext : DbContext
+    public class InMemoryDB : DbContext
     {
-        public ApiContext(DbContextOptions<ApiContext> options)
+        public InMemoryDB(DbContextOptions<InMemoryDB> options)
             : base(options)
         {
         }

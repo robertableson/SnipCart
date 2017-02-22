@@ -10,9 +10,9 @@ namespace snipcart.Controllers
     
     public class HomeController : Controller
     {
-        private readonly ApiContext _context;
+        private readonly InMemoryDB _context;
  
-        public HomeController(ApiContext context)
+        public HomeController(InMemoryDB context)
         {
             _context = context;
         }
