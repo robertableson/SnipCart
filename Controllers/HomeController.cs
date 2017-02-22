@@ -7,7 +7,6 @@ using snipcart;
 
 namespace snipcart.Controllers
 {
-    
     public class HomeController : Controller
     {
         private readonly InMemoryDB _context;
