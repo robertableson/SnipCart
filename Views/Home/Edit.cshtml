@@ -1,21 +1,69 @@
+@model snipcart.Models.Product
+
 @{
     ViewData["Title"] = "Edit";
 }
 <h2>Edit a product</h2>
 
 <form>
-    <div class="form-group">
-        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Name">
+    <div class="form-group form-edit-product">
+        <input type="text" class="form-control" id="prod-title" placeholder="Title" value="@Model.Title">
     </div>
     <div class="form-group">
-        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Description">
+        <textarea class="form-control" id="prod-desc" placeholder="Description" rows="3">@Model.Description</textarea>
     </div>
     <div class="form-group">
-        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Image url">
+        <input type="text" class="form-control" id="prod-price" placeholder="Price (ex: 9.98)" value="@Model.Price">
     </div>
     <div class="form-group">
-        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Price (ex: 97.99)">
+        <input type="text" class="form-control" id="prod-image" placeholder="Image url" value="@Model.Image">
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary btn__edit-product-btn">Save</button>
     <button type="submit" class="btn btn-danger">Delete</button>
 </form>
+
+
+@section scripts
+{
+    <script>
+        $(document).ready(function() {
+            $(".btn__edit-product-btn").click(function(e){
+                e.preventDefault();
+
+                var title = $("#prod-title").val();
+                var description = $("#prod-desc").val(); 
+                var price = $("#prod-price").val();
+                var image = $("#prod-image").val();
+
+                $.ajax({
+                    url: "/Home/EditProduct",
+                    type: "GET",
+                    datatype: 'json',
+                    data: { 
+                        id: 1,
+                        title: title, 
+                        desc: description, 
+                        price: price, 
+                        image: image 
+                    },
+                    success: function (data, status, jqXHR) {
+                        $(".form-edit-product").prepend(
+                            '<div class="alert alert-success">' +
+                                '<strong>Your product has been successfully modified!</strong>' +
+                            '</div>'
+                        );
+                    },
+                    error: function (jqXHR, status, err) {
+                        $(".form-edit-product").prepend(
+                            '<div class="alert alert-danger">' +
+                                '<strong>An error has been detected in your request. Please try again.</strong>' +
+                            '</div>'
+                        );
+                    }
+                })
+            });
+
+
+        });
+    </script>
+}

@@ -5,7 +5,7 @@
  
 <form class="form-add-product">
     <div class="form-group">
-        <input type="text" class="form-control" id="prod-title" placeholder="Name">
+        <input type="text" class="form-control" id="prod-title" placeholder="Title">
     </div>
     <div class="form-group">
         <input type="text" class="form-control" id="prod-desc" placeholder="Description">
@@ -14,7 +14,7 @@
         <input type="text" class="form-control" id="prod-price" placeholder="Price (ex: 9.98)">
     </div>
     <div class="form-group">
-        <input type="text" class="form-control" id="prod-img" placeholder="Image">
+        <input type="text" class="form-control" id="prod-img" placeholder="Image url">
     </div>
     <button class="btn btn-primary btn__add-product-btn">Add</button>
 </form>
@@ -53,9 +53,6 @@
                                 '<strong>An error has been detected in your request. Please try again.</strong>' +
                             '</div>'
                         );
-                    },
-                    complete: function (jqXHR, status) {
-                        //alert("Local completion callback.");
                     }
                 })
             });

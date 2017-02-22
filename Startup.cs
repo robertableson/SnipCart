@@ -68,7 +68,6 @@ namespace snipcart
         {
             var testProd1 = new snipcart.Models.Product
             {
-                Id = 1, 
                 Title = "Jordans S2K Sr edition",
                 Description = "The Jordans S2K Sr edition is the best bang for your buck.", 
                 Price = 97.99,
@@ -76,7 +75,6 @@ namespace snipcart
             };
             var testProd2 = new snipcart.Models.Product
             {
-                Id = 2, 
                 Title = "Lamborghini Huracan",
                 Description = "The Lamborghini Huracan is definitely the best supercar for the money.", 
                 Price = 278999.99,

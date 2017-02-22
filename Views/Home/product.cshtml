@@ -1,5 +1,29 @@
+@model snipcart.Models.Product
+    
 @{
     ViewData["Title"] = "Product";
 }
 
-<h2>Product</h2>
+<h1>@Model.Title</h1>
+<div class="row row__product-page">
+    <div class="col-md-6 product-page__product-col">
+        <img class="product-col__product-image" src="@Model.Image"/>
+    </div>
+    <div class="col-md-6 product-page__product-col">
+        <div class="product-col__product-add-to-cart-btn">
+            <button
+                class="snipcart-add-item btn btn-success product-col__product-add-to-cart-btn"
+                data-item-id="@Model.Id"
+                data-item-name="@Model.Title"
+                data-item-price="@Model.Price"
+                data-item-weight="0"
+                data-item-url="/Home/Product/@Model.Id"
+                data-item-image="@Model.Image"
+                data-item-description="@Model.Description">
+                    Add to cart
+            </button>
+        </div>
+        <div class="product-col__product-price">$@Model.Price</div>
+        @Model.Description
+    </div>
+</div>

@@ -28,14 +28,18 @@ namespace snipcart.Controllers
         {
             return View();
         }
-        public IActionResult Edit()
+        public IActionResult Edit(int id)
         {
-            return View();
+            var prod = (from p in _context.Products where p.Id.Equals(id)  select p).FirstOrDefault();
+
+            return View(prod);
         }
 
         public IActionResult Product(int id)
         {
-            return View();
+            var prod = (from p in _context.Products where p.Id.Equals(id)  select p).FirstOrDefault();
+
+            return View(prod);
         }
 
         public IActionResult Error()
@@ -44,11 +48,10 @@ namespace snipcart.Controllers
         }
 
         [HttpGetAttribute]
-        public string CreateNewProduct(string name, string desc, double price, string image){
+        public string CreateNewProduct(string title, string desc, double price, string image){
             var testProd = new snipcart.Models.Product
             {
-                Id = 3, 
-                Title = name,
+                Title = title,
                 Description = desc, 
                 Price = price,
                 Image = image
@@ -57,6 +60,19 @@ namespace snipcart.Controllers
             _context.Products.Add(testProd);
             _context.SaveChanges();
 
+            return "done";
+        }
+        [HttpGetAttribute]
+        public string EditProduct(int id, string title, string desc, double price, string image){
+            var oldProd = (from p in _context.Products where p.Id.Equals(id)  select p).FirstOrDefault();
+
+            oldProd.Title = title;
+            oldProd.Description = desc;
+            oldProd.Price = price;
+            oldProd.Image = image;
+
+            _context.SaveChanges();
+          
             return "done";
         }
     }

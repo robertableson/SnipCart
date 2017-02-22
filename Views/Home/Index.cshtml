@@ -31,7 +31,7 @@
                     data-item-description="@prod.Description">
                         Add to cart
                 </button>
-                <button onclick="location.href='@Url.Action("Edit", "Home")'"  
+                <button onclick="location.href='@Url.Action("Edit", "Home", new {id = @prod.Id })'"  
                     class="btn btn-warning product-col__product-edit-btn">Edit</button>
             </div>
             </a>

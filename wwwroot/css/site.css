@@ -52,3 +52,17 @@ textarea {
     font-size: 1.5rem;
     color:#494949;
 }
+
+/*Products page*/
+.product-col__product-image{
+    max-width: 500px;
+}
+
+.product-col__product-add-to-cart-btn{
+    margin: 10px 0 10px 0;
+}
+
+.product-col__product-price{
+    font-size: 2rem;
+    font-weight: bold;
+}
