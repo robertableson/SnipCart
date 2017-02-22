@@ -62,6 +62,7 @@ namespace snipcart.Controllers
 
             return "done";
         }
+
         [HttpGetAttribute]
         public string EditProduct(int id, string title, string desc, double price, string image){
             var oldProd = (from p in _context.Products where p.Id.Equals(id)  select p).FirstOrDefault();
@@ -70,6 +71,17 @@ namespace snipcart.Controllers
             oldProd.Description = desc;
             oldProd.Price = price;
             oldProd.Image = image;
+
+            _context.SaveChanges();
+          
+            return "done";
+        }
+
+        [HttpGetAttribute]
+        public string DeleteProduct(int id){
+            var prod = (from p in _context.Products where p.Id.Equals(id)  select p).FirstOrDefault();
+
+            _context.Products.Remove(prod);
 
             _context.SaveChanges();
           

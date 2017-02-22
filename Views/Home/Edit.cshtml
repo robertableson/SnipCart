@@ -19,7 +19,7 @@
         <input type="text" class="form-control" id="prod-image" placeholder="Image url" value="@Model.Image">
     </div>
     <button type="submit" class="btn btn-primary btn__edit-product-btn">Save</button>
-    <button type="submit" class="btn btn-danger">Delete</button>
+    <button type="submit" class="btn btn-danger btn__delete-product-btn">Delete</button>
 </form>
 
 
@@ -40,7 +40,7 @@
                     type: "GET",
                     datatype: 'json',
                     data: { 
-                        id: 1,
+                        id: @Model.Id,
                         title: title, 
                         desc: description, 
                         price: price, 
@@ -50,6 +50,33 @@
                         $(".form-edit-product").prepend(
                             '<div class="alert alert-success">' +
                                 '<strong>Your product has been successfully modified!</strong>' +
+                            '</div>'
+                        );
+                    },
+                    error: function (jqXHR, status, err) {
+                        $(".form-edit-product").prepend(
+                            '<div class="alert alert-danger">' +
+                                '<strong>An error has been detected in your request. Please try again.</strong>' +
+                            '</div>'
+                        );
+                    }
+                })
+            });
+
+            $(".btn__delete-product-btn").click(function(e){
+                e.preventDefault();
+
+                $.ajax({
+                    url: "/Home/DeleteProduct",
+                    type: "GET",
+                    datatype: 'json',
+                    data: { 
+                        id:  @Model.Id
+                    },
+                    success: function (data, status, jqXHR) {
+                        $(".form-edit-product").prepend(
+                            '<div class="alert alert-success">' +
+                                '<strong>Your product has been successfully deleted!</strong>' +
                             '</div>'
                         );
                     },

@@ -55,7 +55,7 @@ textarea {
 
 /*Products page*/
 .product-col__product-image{
-    max-width: 500px;
+    max-width: 100%;
 }
 
 .product-col__product-add-to-cart-btn{
