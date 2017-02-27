@@ -71,6 +71,7 @@ namespace snipcart
                 Title = "Jordans S2K Sr edition",
                 Description = "The Jordans S2K Sr edition is the best bang for your buck.", 
                 Price = 97.99,
+                Sku = "Pk-536-SL",
                 Image = "http://simpleproductphotography.com/wp-content/uploads/2016/06/huf-converse-product-red-skidgrip-1.jpg"
             };
             var testProd2 = new snipcart.Models.Product
@@ -78,6 +79,7 @@ namespace snipcart
                 Title = "Lamborghini Huracan",
                 Description = "The Lamborghini Huracan is definitely the best supercar for the money.", 
                 Price = 278999.99,
+                Sku = "LK-674-HG",
                 Image = "http://1.bp.blogspot.com/-Gaj30dheGzE/VfGQL2uD0_I/AAAAAAAAWJ4/IOomh6RXDpY/w800/lambo-huracan-roadster-rendering-ts-4.jpg"
             };
         

@@ -5,16 +5,20 @@
  
 <form class="form-add-product">
     <div class="form-group">
-        <input type="text" class="form-control" id="prod-title" placeholder="Title">
+        <input type="text" class="form-control" id="prod-title" placeholder="Title" value="Epic EDM Cat Shirt">
     </div>
     <div class="form-group">
-        <input type="text" class="form-control" id="prod-desc" placeholder="Description">
+        <input type="text" class="form-control" id="prod-desc" placeholder="Description" value="Wear something worth talking about, be the boss at your next party!">
     </div>
     <div class="form-group">
-        <input type="text" class="form-control" id="prod-price" placeholder="Price (ex: 9.98)">
+        Please make sure the following price has a dot (9.95) and not a comma (9,95)
+        <input type="text" class="form-control" id="prod-price" placeholder="Price (ex: 9.98)" value="29.95">
     </div>
     <div class="form-group">
-        <input type="text" class="form-control" id="prod-img" placeholder="Image url">
+        <input type="text" class="form-control" id="prod-sku" placeholder="SKU" value="LPK-63G-GT4">
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" id="prod-img" placeholder="Image url" value="http://i3.cpcache.com/product/1697877340/rainbow_music_cat_tshirt.jpg?color=Black&height=630&width=630&qv=90">
     </div>
     <button class="btn btn-primary btn__add-product-btn">Add</button>
 </form>
@@ -28,7 +32,8 @@
                 var title = $("#prod-title").val();
                 var description = $("#prod-desc").val(); 
                 var price = $("#prod-price").val();
-                var image = $("#prod-image").val();
+                var sku = $("#prod-sku").val();
+                var image = $("#prod-img").val();
 
                 $.ajax({
                     url: "/Home/CreateNewProduct",
@@ -38,7 +43,8 @@
                         title: title, 
                         desc: description, 
                         price: price, 
-                        img: image 
+                        sku: sku,
+                        image: image 
                     },
                     success: function (data, status, jqXHR) {
                         $(".form-add-product").prepend(

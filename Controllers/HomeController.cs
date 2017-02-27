@@ -47,12 +47,13 @@ namespace snipcart.Controllers
         }
 
         [HttpGetAttribute]
-        public string CreateNewProduct(string title, string desc, double price, string image){
+        public string CreateNewProduct(string title, string desc, double price, string sku, string image){
             var testProd = new snipcart.Models.Product
             {
                 Title = title,
                 Description = desc, 
                 Price = price,
+                Sku = sku,
                 Image = image
             };
 
@@ -63,12 +64,13 @@ namespace snipcart.Controllers
         }
 
         [HttpGetAttribute]
-        public string EditProduct(int id, string title, string desc, double price, string image){
+        public string EditProduct(int id, string title, string desc, double price, string sku, string image){
             var oldProd = (from p in _context.Products where p.Id.Equals(id)  select p).FirstOrDefault();
 
             oldProd.Title = title;
             oldProd.Description = desc;
             oldProd.Price = price;
+            oldProd.Sku = sku;
             oldProd.Image = image;
 
             _context.SaveChanges();

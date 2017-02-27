@@ -13,7 +13,11 @@
         <textarea class="form-control" id="prod-desc" placeholder="Description" rows="3">@Model.Description</textarea>
     </div>
     <div class="form-group">
-        <input type="text" class="form-control" id="prod-price" placeholder="Price (ex: 9.98)" value="@Model.Price">
+        Please make sure the following price has a dot (9.95) and not a comma (9,95)
+        <input type="text" class="form-control" id="prod-price" placeholder="Price (ex: 9.98)" value="@Model.Price"> 
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" id="prod-sku" placeholder="SKU" value="@Model.Sku">
     </div>
     <div class="form-group">
         <input type="text" class="form-control" id="prod-image" placeholder="Image url" value="@Model.Image">
@@ -33,6 +37,7 @@
                 var title = $("#prod-title").val();
                 var description = $("#prod-desc").val(); 
                 var price = $("#prod-price").val();
+                var sku = $("#prod-sku").val();
                 var image = $("#prod-image").val();
 
                 $.ajax({
@@ -44,6 +49,7 @@
                         title: title, 
                         desc: description, 
                         price: price, 
+                        sku: sku,
                         image: image 
                     },
                     success: function (data, status, jqXHR) {
